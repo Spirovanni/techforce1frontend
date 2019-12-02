@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
+import { ApiService} from '../api.service';
+
 import { MainComponent } from './main.component';
 import { OrganisationsListComponent } from './organisations-list/organisations-list.component';
 import { OrganisationsDetailComponent } from './organisations-detail/organisations-detail.component';
@@ -25,5 +27,8 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
+  providers: [
+    ApiService
+  ]
 })
 export class MainModule { }
