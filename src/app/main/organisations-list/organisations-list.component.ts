@@ -8,14 +8,20 @@ import { ApiService} from '../../api.service';
 })
 export class OrganisationsListComponent implements OnInit {
 
-  organisations = [];
+  // tslint:disable-next-line:ban-types
+  organisations: Object = [];
 
   constructor(
     private apiService: ApiService
   ) { }
 
   ngOnInit() {
-    this.organisations = this.apiService.getOrganisations();
+    this.apiService.getOrganisations().subscribe(
+      data => {
+        this.organisations = data;
+      },
+      error => console.log(error)
+    );
   }
 
 }
