@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService} from '../../api.service';
+
 
 @Component({
   selector: 'app-organisations-list',
@@ -8,20 +8,9 @@ import { ApiService} from '../../api.service';
 })
 export class OrganisationsListComponent implements OnInit {
 
-  // tslint:disable-next-line:ban-types
-  organisations: Object = [];
-
-  constructor(
-    private apiService: ApiService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.apiService.getOrganisations().subscribe(
-      data => {
-        this.organisations = data;
-      },
-      error => console.log(error)
-    );
   }
 
 }
