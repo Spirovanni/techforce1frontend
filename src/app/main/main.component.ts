@@ -22,10 +22,8 @@ export class MainComponent implements OnInit {
       error => console.log(error)
     );
   }
-
   selectOrganisation(organisation) {
     this.selectedOrganisation = organisation;
-    console.log('selectedOrganisation', this.selectedOrganisation);
   }
 
 }

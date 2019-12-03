@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ApiService } from '../../api.service';
+// import  { } from '../../models/Organisation';
 
 @Component({
   selector: 'app-organisations-detail',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrganisationsDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() organisation;
+  @Output() selectOrganisation = new EventEmitter();
+
+  constructor(
+    private apiService: ApiService
+  ) { }
 
   ngOnInit() {
   }
+
+  // getDetails() {
+  //   this.apiService.getOrganisation(this.organisation.id).subscribe(
+  //     (organisation: Organisation) => {
+  //       this.updateOrganisation.emit(organisation);
+  //     },
+  //     error => console.log(error)
+  //   );
+  // }
 
 }

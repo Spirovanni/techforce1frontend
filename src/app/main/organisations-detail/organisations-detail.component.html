@@ -1,1 +1,4 @@
-<p>organisations-detail works!</p>
+<div *ngIf="organisation">
+  <h1>{{ organisation.orgName }}</h1>
+  <p>{{ organisation.orgDescription }}</p>
+</div>
