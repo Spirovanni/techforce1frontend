@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ApiService} from '../api.service';
 
 import { MainComponent } from './main.component';
-import { OrganisationsListComponent } from './organisations-list/organisations-list.component';
+import { OrganisationListComponent } from './organisations-list/organisations-list.component';
 import { OrganisationsDetailComponent } from './organisations-detail/organisations-detail.component';
 import { OrganisationsFormComponent } from './organisations-form/organisations-form.component';
 
@@ -16,7 +16,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MainComponent,
-    OrganisationsListComponent,
+    OrganisationListComponent,
     OrganisationsDetailComponent,
     OrganisationsFormComponent
   ],

@@ -1,5 +1,5 @@
 <h2>List of Organisations</h2>
-<div *ngFor="let organisation of organisations">
+<div *ngFor="let organisation of organisations" (click)="organisationClicked(organisation)">
   <!--suppress TypeScriptUnresolvedVariable -->
   <h3 class="list">{{organisation.orgName}}</h3>
 </div>

@@ -8,10 +8,12 @@ import {ApiService} from '../api.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
-
   // tslint:disable-next-line:ban-types
   organisations: any = [];
+  selectedOrganisation = null;
+  constructor(
+    private apiService: ApiService
+  ) { }
   ngOnInit() {
     this.apiService.getOrganisations().subscribe(
       data => {
@@ -19,6 +21,10 @@ export class MainComponent implements OnInit {
       },
       error => console.log(error)
     );
+  }
+  selectOrganisation(organisation) {
+    this.selectedOrganisation = organisation;
+    console.log('selectedOrganisation', this.selectedOrganisation);
   }
 
 }
