@@ -5,7 +5,7 @@
   <fa name="star" [ngClass]="{'orange': organisation.avg_ratings > 2}"></fa>
   <fa name="star" [ngClass]="{'orange': organisation.avg_ratings > 3}"></fa>
   <fa name="star" [ngClass]="{'orange': organisation.avg_ratings > 4}"></fa>
+  ({{ organisation.no_of_ratings }})
   <p>{{ organisation.orgDescription }}</p>
 
-  {{ organisation.avg_ratings }}  ({{ organisation.no_of_ratings }})
 </div>
