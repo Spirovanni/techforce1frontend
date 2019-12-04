@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../../api.service';
-// import  { } from '../../models/Organisation';
+import { Organisation } from '../../models/Organisation';
 
 @Component({
   selector: 'app-organisations-detail',
@@ -9,8 +9,9 @@ import { ApiService } from '../../api.service';
 })
 export class OrganisationsDetailComponent implements OnInit {
 
-  @Input() organisation;
-  @Output() selectOrganisation = new EventEmitter();
+  @Input() organisation: Organisation;
+  @Output() updateOrganisation = new EventEmitter();
+  rateHovered = 0;
 
   constructor(
     private apiService: ApiService
@@ -18,14 +19,22 @@ export class OrganisationsDetailComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  // getDetails() {
-  //   this.apiService.getOrganisation(this.organisation.id).subscribe(
-  //     (organisation: Organisation) => {
-  //       this.updateOrganisation.emit(organisation);
-  //     },
-  //     error => console.log(error)
-  //   );
-  // }
+  rateHover(rate: number) {
+    this.rateHovered = rate;
+  }
+  rateClicked(rate: number) {
+    this.apiService.rateOrganisation(rate, this.organisation.id).subscribe(
+      result => this.getDetails(),
+      error => console.log(error)
+    );
+  }
+  getDetails() {
+    this.apiService.getOrganisation(this.organisation.id).subscribe(
+      (organisation: Organisation) => {
+        this.updateOrganisation.emit(organisation);
+      },
+      error => console.log(error)
+    );
+  }
 
 }

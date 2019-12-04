@@ -8,4 +8,9 @@
   ({{ organisation.no_of_ratings }})
   <p>{{ organisation.orgDescription }}</p>
 
+  <div id="rate-container">
+    <h2>Rate it!!!</h2>
+    <fa *ngFor="let rate of [1,2,3,4,5]" name="star" (mouseenter)="rateHover(rate)"></fa>
+  </div>
+
 </div>
