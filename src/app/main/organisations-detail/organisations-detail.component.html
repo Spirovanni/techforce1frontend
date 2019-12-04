@@ -1,6 +1,10 @@
 <div *ngIf="organisation">
   <h1>{{ organisation.orgName }}</h1>
-  <fa name="star"></fa>
+  <fa name="star" [ngClass]="{'orange': organisation.avg_ratings > 0}"></fa>
+  <fa name="star" [ngClass]="{'orange': organisation.avg_ratings > 1}"></fa>
+  <fa name="star" [ngClass]="{'orange': organisation.avg_ratings > 2}"></fa>
+  <fa name="star" [ngClass]="{'orange': organisation.avg_ratings > 3}"></fa>
+  <fa name="star" [ngClass]="{'orange': organisation.avg_ratings > 4}"></fa>
   <p>{{ organisation.orgDescription }}</p>
 
   {{ organisation.avg_ratings }}  ({{ organisation.no_of_ratings }})
